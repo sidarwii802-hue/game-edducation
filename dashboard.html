@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Game IPA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen w-screen bg-gradient-to-br from-green-200 to-sky-200">
+
+<div class="w-full h-full bg-white p-6 text-center
+            sm:max-w-lg sm:mx-auto sm:rounded-2xl sm:shadow-lg">
+
+  <h1 class="text-3xl font-bold text-green-700">🏠 Game IPA</h1>
+  <p id="welcome" class="my-4 text-gray-600"></p>
+
+  <div class="grid grid-cols-2 gap-4 mt-6">
+    <button onclick="goMateri()" class="bg-yellow-400 p-4 rounded-xl font-bold">
+      📘 Materi IPA
+    </button>
+
+    <button onclick="goProfil()" class="bg-blue-400 p-4 rounded-xl font-bold">
+      👤 Profil
+    </button>
+
+    <button onclick="goGame()" class="bg-purple-500 text-white p-4 rounded-xl col-span-2">
+      🎮 Mulai Game
+    </button>
+  </div>
+
+  <button onclick="logout()" class="mt-8 text-red-500">
+    Keluar
+  </button>
+
+</div>
+
+<script>
+const nama = localStorage.getItem("nama");
+if(!nama) location.href="login.html";
+document.getElementById("welcome").innerText =
+  "Halo, " + nama + "! Selamat belajar 🌱";
+
+function goGame(){ location.href="game.html"; }
+function goMateri(){ location.href="materi.html"; }
+function goProfil(){ location.href="profil.html"; }
+function logout(){
+  localStorage.clear();
+  location.href="login.html";
+}
+</script>
+
+</body>
+</html>

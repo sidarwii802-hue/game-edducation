@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Profil Saya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-200 to-indigo-200">
+
+<div class="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-md text-center">
+
+  <!-- AVATAR -->
+  <div class="w-20 h-20 mx-auto mb-4 rounded-full 
+              bg-gradient-to-br from-indigo-500 to-purple-500
+              flex items-center justify-center text-white text-4xl font-bold">
+    👤
+  </div>
+
+  <!-- JUDUL -->
+  <h1 class="text-2xl font-extrabold mb-1 text-gray-800">
+    Profil Saya
+  </h1>
+  <p class="text-sm text-gray-500 mb-6">
+    Game Edukasi IPA SD
+  </p>
+
+  <!-- DATA NAMA -->
+  <div class="bg-gray-100 rounded-2xl p-4 mb-6">
+    <p class="text-sm text-gray-500">Nama Siswa</p>
+    <p id="nama" class="font-bold text-xl text-indigo-600"></p>
+  </div>
+
+  <!-- MOTIVASI -->
+  <div class="bg-indigo-50 border-l-4 border-indigo-400 p-3 rounded-xl text-sm mb-6 text-left">
+    🌟 Terus belajar IPA dengan semangat agar menjadi siswa yang pintar dan berprestasi!
+  </div>
+
+  <!-- TOMBOL -->
+  <button onclick="back()" 
+    class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-xl font-semibold">
+    ⬅ Kembali ke Dashboard
+  </button>
+
+</div>
+
+<script>
+const nama = localStorage.getItem("nama");
+if(!nama) location.href="login.html";
+document.getElementById("nama").innerText = nama;
+
+function back(){
+  location.href="dashboard.html";
+}
+</script>
+
+</body>
+</html>

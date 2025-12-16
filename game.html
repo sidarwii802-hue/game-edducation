@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Game Edukasi IPA SD</title>
+
+<!-- PENTING: Fullscreen HP -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen w-screen bg-gradient-to-br from-yellow-200 to-green-200">
+
+<!-- CONTAINER GAME -->
+<div class="
+  w-full h-full bg-white p-4 flex flex-col
+  sm:max-w-xl sm:mx-auto sm:my-6 sm:rounded-2xl sm:shadow-lg
+">
+
+  <!-- HEADER -->
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-lg font-bold">🧠 Game IPA SD</h2>
+    <span class="text-sm">👤 <span id="namaSiswa"></span></span>
+  </div>
+
+  <!-- STATUS -->
+  <div class="flex justify-between text-sm mb-3">
+    <span>⭐ Skor: <span id="skor">0</span></span>
+    <span>📘 Soal: <span id="nomor">1</span>/5</span>
+  </div>
+
+  <!-- SOAL -->
+  <div class="bg-yellow-100 p-4 rounded-xl mb-3">
+    <p id="soal" class="font-bold"></p>
+  </div>
+
+  <!-- OPSI -->
+  <div id="opsi" class="space-y-3"></div>
+
+  <!-- HASIL -->
+  <p id="hasil" class="mt-3 font-bold"></p>
+
+  <!-- PENJELASAN -->
+  <div id="materi" class="hidden bg-green-100 p-3 mt-3 rounded-xl text-sm"></div>
+
+  <!-- SPACER (agar tombol selalu di bawah layar HP) -->
+  <div class="flex-grow"></div>
+
+  <!-- TOMBOL -->
+  <div class="flex gap-3 mt-4">
+    <button onclick="lanjut()"
+      class="flex-1 bg-blue-500 text-white py-3 rounded-xl font-semibold">
+      Lanjut
+    </button>
+    <button onclick="home()"
+      class="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold">
+      Dashboard
+    </button>
+  </div>
+
+</div>
+
+<script>
+// 🔐 CEK LOGIN
+if(!localStorage.getItem("nama")) location.href="login.html";
+document.getElementById("namaSiswa").innerText = localStorage.getItem("nama");
+
+// 📘 DATA SOAL IPA
+const soal = [
+ {
+  q:"Fungsi akar pada tumbuhan adalah...",
+  o:["Menyerap air dan mineral","Tempat fotosintesis"],
+  a:0,
+  m:"Akar berfungsi menyerap air dan zat hara dari tanah."
+ },
+ {
+  q:"Hewan pemakan tumbuhan disebut...",
+  o:["Karnivora","Herbivora"],
+  a:1,
+  m:"Herbivora adalah hewan pemakan tumbuhan, contohnya sapi."
+ },
+ {
+  q:"Bagian tumbuhan tempat terjadinya fotosintesis adalah...",
+  o:["Daun","Batang"],
+  a:0,
+  m:"Fotosintesis terjadi di daun karena mengandung klorofil."
+ },
+ {
+  q:"Sumber energi terbesar bagi makhluk hidup di bumi adalah...",
+  o:["Matahari","Bulan"],
+  a:0,
+  m:"Matahari memberikan cahaya dan panas bagi kehidupan."
+ },
+ {
+  q:"Contoh hewan omnivora adalah...",
+  o:["Ayam","Kambing"],
+  a:0,
+  m:"Omnivora memakan tumbuhan dan hewan. Contohnya ayam."
+ }
+];
+
+let i = 0;
+let skor = 0;
+let sudahJawab = false;
+
+// TAMPILKAN SOAL
+function tampil(){
+ document.getElementById("nomor").innerText = i+1;
+ document.getElementById("soal").innerText = soal[i].q;
+ document.getElementById("skor").innerText = skor;
+ document.getElementById("hasil").innerText = "";
+ document.getElementById("materi").classList.add("hidden");
+ document.getElementById("materi").innerText = "";
+ sudahJawab = false;
+
+ const opsi = document.getElementById("opsi");
+ opsi.innerHTML = "";
+ soal[i].o.forEach((x,j)=>{
+  const b = document.createElement("button");
+  b.innerText = x;
+  b.className = "w-full border p-3 rounded-xl hover:bg-blue-100";
+  b.onclick = ()=>cek(j);
+  opsi.appendChild(b);
+ });
+}
+
+// CEK JAWABAN
+function cek(j){
+ if(sudahJawab) return;
+ sudahJawab = true;
+
+ if(j === soal[i].a){
+  skor += 10;
+  hasil.innerText = "✅ Jawaban Benar!";
+  hasil.className = "text-green-600 font-bold";
+ }else{
+  hasil.innerText = "❌ Jawaban Salah";
+  hasil.className = "text-red-600 font-bold";
+ }
+
+ const m = document.getElementById("materi");
+ m.innerText = "📘 Penjelasan: " + soal[i].m;
+ m.classList.remove("hidden");
+ document.getElementById("skor").innerText = skor;
+}
+
+// LANJUT
+function lanjut(){
+ if(!sudahJawab){
+  alert("Pilih jawaban dulu ya 😊");
+  return;
+ }
+ i++;
+ if(i >= soal.length){
+  alert("🎉 Selesai!\nSkor Akhir: " + skor);
+  location.href = "dashboard.html";
+ }else{
+  tampil();
+ }
+}
+
+// HOME
+function home(){
+ location.href="dashboard.html";
+}
+
+tampil();
+</script>
+
+</body>
+</html>

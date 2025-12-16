@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Materi IPA Kelas 5 SD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-200 to-green-200">
+
+<div class="bg-white p-6 rounded-2xl shadow-lg max-w-2xl">
+
+  <h1 class="text-2xl font-bold mb-4 text-center text-green-700">
+    📘 Materi Ilmu Pengetahuan Alam (IPA)
+  </h1>
+
+  <p class="text-sm text-center mb-6 text-gray-600">
+    Materi pembelajaran IPA untuk siswa Sekolah Dasar
+  </p>
+
+  <!-- MATERI 1 -->
+  <div class="mb-4">
+    <h2 class="font-bold text-lg mb-2">🌱 1. Tumbuhan</h2>
+    <p class="text-sm mb-2">
+      Tumbuhan adalah makhluk hidup yang dapat membuat makanannya sendiri
+      melalui proses <b>fotosintesis</b>.
+    </p>
+    <ul class="list-disc ml-5 text-sm space-y-1">
+      <li><b>Akar</b> berfungsi menyerap air dan zat hara dari dalam tanah.</li>
+      <li><b>Batang</b> berfungsi menopang tumbuhan dan mengalirkan air.</li>
+      <li><b>Daun</b> berfungsi sebagai tempat fotosintesis.</li>
+      <li><b>Bunga</b> berfungsi sebagai alat perkembangbiakan.</li>
+    </ul>
+  </div>
+
+  <!-- MATERI 2 -->
+  <div class="mb-4">
+    <h2 class="font-bold text-lg mb-2">🐾 2. Hewan</h2>
+    <p class="text-sm mb-2">
+      Hewan adalah makhluk hidup yang membutuhkan makanan untuk bertahan hidup.
+      Berdasarkan jenis makanannya, hewan dibagi menjadi:
+    </p>
+    <ul class="list-disc ml-5 text-sm space-y-1">
+      <li><b>Herbivora</b>: Hewan pemakan tumbuhan (contoh: sapi, kambing).</li>
+      <li><b>Karnivora</b>: Hewan pemakan daging (contoh: singa, harimau).</li>
+      <li><b>Omnivora</b>: Hewan pemakan tumbuhan dan daging (contoh: ayam, manusia).</li>
+    </ul>
+  </div>
+
+  <!-- MATERI 3 -->
+  <div class="mb-4">
+    <h2 class="font-bold text-lg mb-2">☀️ 3. Energi</h2>
+    <p class="text-sm mb-2">
+      Energi adalah kemampuan untuk melakukan kerja. Tanpa energi, makhluk hidup
+      tidak bisa melakukan aktivitas.
+    </p>
+    <ul class="list-disc ml-5 text-sm space-y-1">
+      <li><b>Matahari</b> adalah sumber energi terbesar bagi bumi.</li>
+      <li>Energi matahari digunakan tumbuhan untuk fotosintesis.</li>
+      <li>Energi juga digunakan manusia untuk bergerak dan bekerja.</li>
+    </ul>
+  </div>
+
+  <!-- MATERI 4 -->
+  <div class="mb-4">
+    <h2 class="font-bold text-lg mb-2">🌍 4. Lingkungan</h2>
+    <p class="text-sm mb-2">
+      Lingkungan adalah tempat makhluk hidup tinggal dan berkembang.
+      Lingkungan harus dijaga agar tetap bersih dan sehat.
+    </p>
+    <ul class="list-disc ml-5 text-sm space-y-1">
+      <li>Membuang sampah pada tempatnya.</li>
+      <li>Menanam dan merawat tumbuhan.</li>
+      <li>Tidak mencemari air dan udara.</li>
+      <li>Menjaga kebersihan sekolah dan rumah.</li>
+    </ul>
+  </div>
+
+  <!-- KESIMPULAN -->
+  <div class="bg-green-100 p-3 rounded-xl text-sm mt-4">
+    <b>Kesimpulan:</b>  
+    Ilmu Pengetahuan Alam membantu kita memahami makhluk hidup, energi,
+    dan lingkungan sekitar agar kita dapat hidup selaras dengan alam.
+  </div>
+
+  <!-- TOMBOL -->
+  <div class="text-center mt-6">
+    <button onclick="back()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-xl">
+      ⬅ Kembali ke Dashboard
+    </button>
+  </div>
+
+</div>
+
+<script>
+if(!localStorage.getItem("nama")) location.href="login.html";
+function back(){
+  location.href="dashboard.html";
+}
+</script>
+
+</body>
+</html>
